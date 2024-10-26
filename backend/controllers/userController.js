@@ -133,7 +133,7 @@ export const userController = {
             // Generate JWT token
             const token = jwt.sign(
                 { userId: savedUser._id },
-                process.env.JWT_SECRET,
+                "secret",
                 { expiresIn: "24h" }
             );
 
@@ -163,7 +163,7 @@ export const userController = {
 			if (!user || !(await bcrypt.compare(password, user.password))) {
 				return res.status(401).json({ error: "Invalid credentials" });
 			}
-			const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+			const token = jwt.sign({ userId: user._id }, "secret", {
 				expiresIn: "24h",
 			});
 			res.json({
