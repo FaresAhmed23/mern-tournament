@@ -42,6 +42,9 @@ const Home = () => {
 							<button className="bg-white rounded-full p-3 text-sm text-stone-800 mb-10 border-2 hover:bg-stone-800 hover:text-stone-200 transition-all duration-150">
 								<Link to={"/events"}>View Events</Link>
 							</button>
+           <button className="bg-white rounded-full p-3 text-sm text-stone-800 mb-10 border-2 hover:bg-stone-800 hover:text-stone-200 transition-all duration-150">
+								<Link to={"/admin"}>Admin</Link>
+							</button>
 						</div>
 					</div>
 				</div>
