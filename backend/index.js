@@ -15,11 +15,23 @@ const app = express();
 
 connectDB();
 
-app.use(cors({
-	origin: ["https://mern-tournament-aigt.vercel.app"],
-	methods: ["POST", "GET"],
-	credentials: true
-}));
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    const allowedOrigins = ["https://mern-tournament-aigt.vercel.app"];
+
+    callback(null, true);
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" }));
