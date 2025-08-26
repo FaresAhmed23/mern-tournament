@@ -8,8 +8,6 @@ import { eventRouter } from "./routes/eventRouter.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { connectDB } from "./db/connectDB.js";
 import bodyParser from "body-parser";
-import helmet from "helmet";
-
 
 dotenv.config();
 
@@ -17,8 +15,6 @@ const app = express();
 
 connectDB();
 
-// Middleware
-app.use(helmet());
 app.use(cors({
 	origin: ["https://mern-tournament-aigt.vercel.app"],
 	methods: ["POST", "GET"],
